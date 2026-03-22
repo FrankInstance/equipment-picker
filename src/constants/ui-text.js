@@ -24,5 +24,11 @@ export const UI_TEXT = {
   slotFilter: "\u90e8\u4f4d\u7b5b\u9009",
   equipmentList: "\u88c5\u5907\u5217\u8868",
   fitStandard: "\u6807\u51c6\u9002\u914d",
-  fitBetter: "\u8f83\u597d\u9002\u914d"
+  fitBetter: "\u8f83\u597d\u9002\u914d",
+  loadingBrand: "ARKNIGHTS ENDFIELD",
+  loadingSystem: "SYSTEM ORIENTED PRELOAD",
+  loadingStatus: "\u6b63\u5728\u63a5\u5165\u7ec8\u672b\u5730\u88c5\u5907\u7ec8\u7aef",
+  loadingSubstatus: "\u540c\u6b65\u88c5\u5907\u6863\u6848\u3001\u5c5e\u6027\u7d22\u5f15\u4e0e\u7cbe\u953b\u8def\u5f84",
+  loadingTagline: "OVER THE FRONTIER / INTO THE FRONT",
+  loadingPercentSuffix: "%"
 };

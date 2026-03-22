@@ -19,6 +19,7 @@ const PLACEHOLDER_IMAGE = (() => {
 })();
 
 const NON_REFINABLE_KEYS = new Set(["defense"]);
+const LOADING_LOGO_SRC = "/images/ui/endfield-loading-logo.png";
 
 const resolveSlot = (item) => {
   if (String(item.id).startsWith("armor_")) {
@@ -70,8 +71,39 @@ export default function App() {
   const [selectedEquipment, setSelectedEquipment] = useState(null);
   const [activeSlot, setActiveSlot] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [isBooting, setIsBooting] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   const normalizedData = useMemo(() => EQUIPMENT_DATA.map(normalizeEquipment), []);
+
+  useEffect(() => {
+    setIsBooting(true);
+    setLoadingProgress(0);
+
+    const start = window.performance.now();
+    let frameId = 0;
+
+    const tick = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(100, Math.round((elapsed / 1500) * 100));
+      setLoadingProgress(progress);
+
+      if (elapsed < 1500) {
+        frameId = window.requestAnimationFrame(tick);
+      } else {
+        setLoadingProgress(100);
+        window.setTimeout(() => {
+          setIsBooting(false);
+        }, 140);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -140,7 +172,43 @@ export default function App() {
     <>
       <div className="backdrop"></div>
 
-      <main className="page">
+      <div className={`loading-screen ${isBooting ? "is-active" : "is-exit"}`} aria-hidden={!isBooting}>
+        <div className="loading-screen__rail"></div>
+        <div className="loading-screen__grid"></div>
+        <div className="loading-screen__topography"></div>
+        <div className="loading-screen__grain"></div>
+
+        <div className="loading-screen__content">
+          <div className="loading-screen__mark">
+            <img className="loading-screen__logo-image" src={LOADING_LOGO_SRC} alt={TEXT.loadingBrand} />
+          </div>
+
+          <div className="loading-screen__meta">
+            <div className="loading-screen__system-line">
+              <span className="loading-screen__signal"></span>
+              <span>{TEXT.loadingSystem}</span>
+            </div>
+            <p>{TEXT.loadingStatus}</p>
+            <span>{TEXT.loadingSubstatus}</span>
+            <strong>{TEXT.loadingTagline}</strong>
+          </div>
+        </div>
+
+        <div className="loading-screen__progress">
+          <div className="loading-screen__progress-bar">
+            <div
+              className="loading-screen__progress-fill"
+              style={{ transform: `scaleX(${loadingProgress / 100})` }}
+            ></div>
+          </div>
+          <div className="loading-screen__progress-text">
+            {loadingProgress}
+            {TEXT.loadingPercentSuffix}
+          </div>
+        </div>
+      </div>
+
+      <main className={`page ${isBooting ? "page--booting" : "page--ready"}`}>
         <header className="hero">
           <p className="eyebrow">ARKNIGHTS: ENDFIELD</p>
           <h1>{TEXT.title}</h1>

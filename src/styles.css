@@ -43,10 +43,200 @@ body {
   pointer-events: none;
 }
 
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 58%, rgba(255, 255, 255, 0.02), transparent 30%),
+    linear-gradient(180deg, rgba(17, 20, 24, 0.98), rgba(10, 12, 15, 0.99));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.loading-screen.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading-screen.is-exit {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-screen__rail,
+.loading-screen__grid,
+.loading-screen__topography,
+.loading-screen__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loading-screen__rail {
+  left: 0;
+  width: 10px;
+  background: rgba(255, 230, 9, 0.08);
+  border-right: 1px solid rgba(255, 230, 9, 0.3);
+}
+
+.loading-screen__grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 155px 155px;
+  opacity: 0.42;
+}
+
+.loading-screen__topography {
+  opacity: 0.22;
+  background:
+    radial-gradient(circle at 62% 70%, transparent 0 108px, rgba(255, 255, 255, 0.055) 109px 111px, transparent 112px),
+    radial-gradient(circle at 62% 70%, transparent 0 146px, rgba(255, 255, 255, 0.045) 147px 149px, transparent 150px),
+    radial-gradient(circle at 62% 70%, transparent 0 188px, rgba(255, 255, 255, 0.038) 189px 191px, transparent 192px),
+    radial-gradient(circle at 62% 70%, transparent 0 238px, rgba(255, 255, 255, 0.03) 239px 241px, transparent 242px),
+    radial-gradient(circle at 62% 70%, transparent 0 292px, rgba(255, 255, 255, 0.025) 293px 295px, transparent 296px),
+    radial-gradient(circle at 62% 70%, transparent 0 350px, rgba(255, 255, 255, 0.02) 351px 353px, transparent 354px);
+  filter: blur(0.2px);
+}
+
+.loading-screen__grain {
+  opacity: 0.11;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.9) 0.45px, transparent 0.45px),
+    linear-gradient(transparent 0, rgba(255, 255, 255, 0.03) 50%, transparent 100%);
+  background-size: 4px 4px, 100% 3px;
+}
+
+.loading-screen__content {
+  position: absolute;
+  top: 50%;
+  left: 64.5%;
+  transform: translate(-50%, -54%);
+  display: grid;
+  gap: 24px;
+  width: min(520px, calc(100vw - 80px));
+  animation: loadingContentIn 520ms ease-out;
+}
+
+.loading-screen__mark {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.loading-screen__logo-image {
+  display: block;
+  width: clamp(180px, 19vw, 230px);
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+}
+
+.loading-screen__meta {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.94);
+  animation: loadingMetaIn 820ms ease-out;
+}
+
+.loading-screen__system-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.loading-screen__signal {
+  width: 10px;
+  height: 10px;
+  background: #ffe609;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.loading-screen__meta p,
+.loading-screen__meta span,
+.loading-screen__meta strong {
+  margin: 0;
+}
+
+.loading-screen__meta p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.loading-screen__meta span {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loading-screen__meta strong {
+  margin-top: 10px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.loading-screen__progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+}
+
+.loading-screen__progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+}
+
+.loading-screen__progress-fill {
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  background: linear-gradient(180deg, #ffe609 0%, #f3d80a 100%);
+  box-shadow: 0 0 18px rgba(255, 230, 9, 0.34);
+}
+
+.loading-screen__progress-text {
+  position: absolute;
+  left: 24px;
+  bottom: 18px;
+  color: #ffe609;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(3rem, 7vw, 4rem);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
 .page {
   min-height: 100vh;
   padding: 56px clamp(20px, 5vw, 80px) 80px;
   position: relative;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.page--booting {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.page--ready {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero {
@@ -431,7 +621,42 @@ body {
   }
 }
 
+@keyframes loadingContentIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -49%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -54%);
+  }
+}
+
+@keyframes loadingMetaIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 720px) {
+  .loading-screen__content {
+    left: 58%;
+    width: calc(100vw - 56px);
+  }
+
+  .loading-screen__logo-image {
+    width: min(220px, 52vw);
+  }
+
+  .loading-screen__meta strong {
+    font-size: 1.4rem;
+  }
+
   .panel__header {
     flex-direction: column;
     align-items: flex-start;
