@@ -15,7 +15,7 @@ export const UI_TEXT = {
   recommendationEmpty: "\u9009\u62e9\u88c5\u5907\u540e\u663e\u793a\u63a8\u8350\u5217\u8868",
   recommendationTitleSuffix: " \u7cbe\u953b\u63a8\u8350",
   recommendationSubPrefix: "\u5f53\u524d\u503c\uff1a",
-  recommendationSubMiddle: " | \u540c\u90e8\u4f4d\u4e14\u5305\u542b\u8be5\u5c5e\u6027\u7684\u88c5\u5907",
+  recommendationSubMiddle: "",
   recommendationUnavailable: "\u6682\u65e0\u53ef\u7528\u4e8e\u8be5\u5c5e\u6027\u5f3a\u5316\u7684\u540c\u90e8\u4f4d\u88c5\u5907",
   library: "\u88c5\u5907\u5e93",
   close: "\u5173\u95ed",
