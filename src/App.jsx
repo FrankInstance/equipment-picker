@@ -7,13 +7,13 @@ const PLACEHOLDER_IMAGE = (() => {
   <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
     <defs>
       <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#2b3b4f" />
-        <stop offset="100%" stop-color="#101722" />
+        <stop offset="0%" stop-color="#3a3a3a" />
+        <stop offset="100%" stop-color="#0b0b0b" />
       </linearGradient>
     </defs>
     <rect width="160" height="160" rx="18" fill="url(#g)" />
-    <path d="M20 120 L70 70 L95 95 L125 65 L140 80" stroke="#72c1ff" stroke-width="4" fill="none" opacity="0.7" />
-    <text x="50%" y="55%" text-anchor="middle" fill="#a5b3c8" font-size="14" font-family="Arial">NO IMAGE</text>
+    <path d="M20 120 L70 70 L95 95 L125 65 L140 80" stroke="#e8e8e3" stroke-width="4" fill="none" opacity="0.7" />
+    <text x="50%" y="55%" text-anchor="middle" fill="#bfbfb8" font-size="14" font-family="Arial">NO IMAGE</text>
   </svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 })();
@@ -85,10 +85,10 @@ export default function App() {
 
     const tick = (now) => {
       const elapsed = now - start;
-      const progress = Math.min(100, Math.round((elapsed / 1500) * 100));
+      const progress = Math.min(100, Math.round((elapsed / 1200) * 100));
       setLoadingProgress(progress);
 
-      if (elapsed < 1500) {
+      if (elapsed < 1200) {
         frameId = window.requestAnimationFrame(tick);
       } else {
         setLoadingProgress(100);

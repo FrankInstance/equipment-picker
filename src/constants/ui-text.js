@@ -5,7 +5,7 @@ export const UI_TEXT = {
   accessory: "\u914d\u4ef6",
   unknown: "\u672a\u77e5",
   unnamed: "\u672a\u547d\u540d\u88c5\u5907",
-  title: "\u88c5\u5907\u7cbe\u953b\u63a8\u8350\u5c0f\u5de5\u5177",
+  title: "\u88c5\u5907\u7cbe\u953b\u63a8\u8350",
   current: "\u5f53\u524d\u9009\u62e9",
   choose: "\u9009\u62e9\u88c5\u5907",
   unselected: "\u672a\u9009\u62e9\u88c5\u5907",
