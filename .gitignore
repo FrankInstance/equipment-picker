@@ -3,3 +3,5 @@ node_modules
 /.env
 /.env.*
 .DS_Store
+vite-dev.log
+vite-dev.err.log
