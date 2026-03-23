@@ -583,7 +583,7 @@ export const EQUIPMENT_DATA = [
         "sortValue": 58.0
       },
       {
-        "key": "fireAndNatureDamageBonus",
+        "key": "fireAndnatureDamageBonus",
         "label": "\u707c\u70ed\u548c\u81ea\u7136\u4f24\u5bb3\u52a0\u6210",
         "value": "11.5%",
         "sortValue": 11.5
@@ -1095,7 +1095,7 @@ export const EQUIPMENT_DATA = [
         "sortValue": 43.0
       },
       {
-        "key": "fireAndNatureDamageBonus",
+        "key": "fireAndnatureDamageBonus",
         "label": "\u707c\u70ed\u548c\u81ea\u7136\u4f24\u5bb3\u52a0\u6210",
         "value": "19.2%",
         "sortValue": 19.2
@@ -1531,7 +1531,7 @@ export const EQUIPMENT_DATA = [
         "sortValue": 43.0
       },
       {
-        "key": "fireAndNatureDamageBonus",
+        "key": "fireAndnatureDamageBonus",
         "label": "\u707c\u70ed\u548c\u81ea\u7136\u4f24\u5bb3\u52a0\u6210",
         "value": "19.2%",
         "sortValue": 19.2
@@ -1563,7 +1563,7 @@ export const EQUIPMENT_DATA = [
         "sortValue": 43.0
       },
       {
-        "key": "fireAndNatureDamageBonus",
+        "key": "fireAndnatureDamageBonus",
         "label": "\u707c\u70ed\u548c\u81ea\u7136\u4f24\u5bb3\u52a0\u6210",
         "value": "19.2%",
         "sortValue": 19.2
@@ -1967,10 +1967,10 @@ export const EQUIPMENT_DATA = [
         "sortValue": 21.0
       },
       {
-        "key": "critRate",
-        "label": "\u66b4\u51fb\u7387",
-        "value": "10.4%",
-        "sortValue": 10.4
+        "key": "comboDamageBonus",
+        "label": "\u8fde\u643a\u6280\u4f24\u5bb3\u52a0\u6210",
+        "value": "41.4%",
+        "sortValue": 41.4
       }
     ]
   },
@@ -2493,7 +2493,7 @@ export const EQUIPMENT_DATA = [
         "sortValue": 21.0
       },
       {
-        "key": "fireAndNatureDamageBonus",
+        "key": "fireAndnatureDamageBonus",
         "label": "\u707c\u70ed\u548c\u81ea\u7136\u4f24\u5bb3\u52a0\u6210",
         "value": "23%",
         "sortValue": 23.0
