@@ -1967,8 +1967,8 @@ export const EQUIPMENT_DATA = [
         "sortValue": 21.0
       },
       {
-        "key": "comboDamageBonus",
-        "label": "\u8fde\u643a\u6280\u4f24\u5bb3\u52a0\u6210",
+        "key": "activeSkillDamageBonus",
+        "label": "\u6218\u6280\u4f24\u5bb3\u52a0\u6210",
         "value": "41.4%",
         "sortValue": 41.4
       }
